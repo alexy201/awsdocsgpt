@@ -29,7 +29,6 @@ export default function IndexPage() {
         </h1>
         <AntimetalComponent />
       </div>
-      <CourseSelector />
       <Prompt onChange={setChat} setLoading={setLoading} setData={setData} setApiLeyListener={setApiLeyListener}
               messages={messages} setMessages={setMessages} append={append} />
       <OutputComponent chat={chat} isLoading={isLoading} data={data} messages={messages} apiKeyListener={apiKeyListener} />

@@ -79,7 +79,7 @@ async def helper(request: Request, query: query):
             np.array(embedding),
             query.similarity_threshold,
             query.results,
-            "Theory of Numbers",
+            query.course,
         )
     except Exception as e:
         _logger.error({"message": "Issue with querying Postgres." + str(e)})

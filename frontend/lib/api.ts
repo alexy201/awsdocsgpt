@@ -3,6 +3,7 @@ import { CHAT_ENDPOINT, SEARCH_ENDPOINT } from "config/config"
 
 function createRequest(
   textareaValue: string,
+  courseTitle: string,
   results: string,
   sentences: string,
   threshold: string,
@@ -12,6 +13,7 @@ function createRequest(
 ) {
   return api_key === "" ? {
     prompt: textareaValue,
+    course: courseTitle,
     results: results,
     sentences: sentences,
     similarity_threshold: threshold,
@@ -20,6 +22,7 @@ function createRequest(
     userPrompt: userPrompt
   } : {
     prompt: textareaValue,
+    course: courseTitle,
     results: results,
     sentences: sentences,
     similarity_threshold: threshold,
@@ -32,6 +35,7 @@ function createRequest(
 
 export async function fetchData(
   textareaValue: string,
+  courseTitle: string,
   mode: string,
   results: string,
   sentences: string,
@@ -45,7 +49,7 @@ export async function fetchData(
     console.log("systemPrompt: ", systemPrompt)
     const response = await axios.post(
       url || "",
-      createRequest(textareaValue, results, sentences, threshold, api_key, systemPrompt, userPrompt),
+      createRequest(textareaValue, courseTitle, results, sentences, threshold, api_key, systemPrompt, userPrompt),
       {
         headers: {
           Accept: "application/json",

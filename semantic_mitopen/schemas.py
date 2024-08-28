@@ -8,6 +8,7 @@ load_dotenv()
 
 class query(BaseModel):
     prompt: str
+    course: str | None = ""
     temperature: float | None = 0.00
     similarity_threshold: float | None = 0.50
     sentences: str | None = "short"
