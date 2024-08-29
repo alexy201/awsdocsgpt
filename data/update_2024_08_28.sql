@@ -3,7 +3,7 @@ create or replace function mit_open_gpt_search (
     query_embedding vector (1536),
     similarity_threshold float,
     match_count int,
-    course_title text
+    run_identifier text
 )
 returns table (
     content_title text,
@@ -30,7 +30,7 @@ begin
         mit_open_chunks.run_title
 from mit_open_chunks
 where 1 - (mit_open_chunks.embedding <=> query_embedding) > similarity_threshold
-and mit_open_chunks.run_title LIKE course_title||'%'
+and mit_open_chunks.run_key LIKE run_identifier||'%'
 order by mit_open_chunks.embedding <=> query_embedding
 limit match_count;
 end;

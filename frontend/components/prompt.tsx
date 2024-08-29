@@ -118,7 +118,7 @@ export function Prompt({ onChange, setLoading, setData, setApiLeyListener, messa
   return (
     <React.Fragment>
       <div className="relative mt-2 flex w-full items-end gap-4">
-        <CourseSelector onChange={handleCourseChange} onSelect={handleCourseChange}/>
+        <CourseSelector onChange={handleCourseChange}/>
       </div>
       <div className="relative mt-2 flex w-full items-end gap-4">
         <Icons.search className="absolute left-4 top-7 md:top-10 h-6 w-6 md:h-8 md:w-8 -translate-y-1/2"/>
